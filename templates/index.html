@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Image Chat</title>
+<style>
+body{font-family:Arial;background:#eee}
+.box{max-width:600px;margin:auto;background:#fff;padding:15px}
+img{width:120px;margin:5px;border-radius:8px}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h3>💬 بوت الصور</h3>
+
+{% if msg %}
+<p><b>أنت:</b> {{ msg }}</p>
+<p><b>البوت:</b></p>
+{% for i in images %}
+<img src="{{ i }}">
+{% endfor %}
+{% endif %}
+
+<form method="post" action="/chat">
+<input name="msg" placeholder="اكتب كلمة..." required>
+<button>إرسال</button>
+</form>
+</div>
+
+</body>
+</html>
